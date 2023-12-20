@@ -37,13 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var input = document.getElementById('input');
     var btn = document.getElementById('submitBtn');
     var card = document.querySelector('.card');
+    var loaderContainer = document.getElementById('loaderContainer');
 
     btn.addEventListener('click', function () {
+        
         console.log(input.value);
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + input.value +
+        loaderContainer.innerHTML = '<div class="loader"></div>';
+        setTimeout(() => {
+            fetch('https://api.openweathermap.org/data/2.5/weather?q=' + input.value +
             '&appid=6f749b9cb201e184bb4d4ee81c2e115d&units=metric')
             .then(response => response.json())
             .then(data => {
+                loaderContainer.innerHTML = '';
                 // Remove existing weather container if it exists
                 var existingWeatherContainer = document.getElementById('weatherContainer');
                 if (existingWeatherContainer) {
@@ -64,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var temperatureElement = document.createElement('p');
                 var temperature = Math.round(data.main.temp);
-                temperatureElement.textContent = 'Temperature: ' + temperature + ' Celsius';
+                temperatureElement.textContent = temperature + '°';
 
                 var humidityElement = document.createElement('p');
                 humidityElement.textContent = 'Humidity: ' + data.main.humidity;
@@ -79,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 card.appendChild(weatherContainer);
             })
             .catch(err => alert('Wrong city name!'));
+        },2000);
+        
     });
 });
 
