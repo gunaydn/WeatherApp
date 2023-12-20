@@ -1,0 +1,61 @@
+.card {
+    width: 500px;
+    padding: 30px;
+    background-color: #ecf0f1; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    border: 1px solid #3498db; 
+    margin-top:50px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input {
+    font-size: large;
+    border: 1px solid #3498db; 
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #2c3e50; 
+}
+
+.btn {
+    font-size: large;
+    border: 1px solid #e9d8e4;
+    border-radius: 8px;
+    background-color: #27ae60;
+    color: #ffffff;
+    padding:12px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    font-size: large;
+    border: 1px solid #27ae60;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #27ae60;
+    padding:12px;
+    cursor: pointer;
+}
+
+.margin-5{
+    margin-top: 10px;
+}
+
+#weatherContainer{
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+
+}
