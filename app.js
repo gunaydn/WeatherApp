@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var rainyIcon = "../Icons/rainy128px_icon.png";
   var snowyIcon = "../Icons/snowy128px_icon.png";
   var sunnyIcon = "../Icons/clear128px_icon.png";
+  var drizzleIcon = "../Icons/drizzle128px_icon.png";
 
   btn.addEventListener("click", function () {
     console.log(input.value);
@@ -49,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
             case "Snow":
               weatherIconImg.src = snowyIcon;
               break;
+            case "Drizzle":
+              weatherIconImg.src = drizzleIcon;
           }
           console.log(data.weather[0].main);
           weatherElement.textContent = capitalizeFirstLetter(desc);
