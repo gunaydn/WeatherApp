@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var snowyIcon = "../Icons/snowy128px_icon.png";
   var sunnyIcon = "../Icons/clear128px_icon.png";
   var drizzleIcon = "../Icons/drizzle128px_icon.png";
+  var clearSkyBg = "../Icons/clearSky_bg.png";
 
   btn.addEventListener("click", function () {
-    console.log(input.value);
     var existingWeatherContainer = document.getElementById("weatherContainer");
     if (existingWeatherContainer) {
       console.log(existingWeatherContainer);
@@ -36,22 +36,34 @@ document.addEventListener("DOMContentLoaded", function () {
           var weatherElement = document.createElement("p");
           const desc = data.weather[0].description;
           var weatherIconImg = document.createElement("img");
+          console.log(clearSkyBg);
 
           switch (data.weather[0].main) {
             case "Clouds":
               weatherIconImg.src = cloudyIcon;
+              document.body.style.backgroundImage =
+                "url(../Icons/cloudy_bg.png)";
               break;
             case "Rain":
               weatherIconImg.src = rainyIcon;
+              document.body.style.backgroundImage =
+                "url(../Icons/rainy_bg.png)";
               break;
             case "Clear":
               weatherIconImg.src = sunnyIcon;
+              document.body.style.backgroundImage =
+                "url(../Icons/clearSky_bg.png)";
               break;
             case "Snow":
               weatherIconImg.src = snowyIcon;
+              document.body.style.backgroundImage =
+                "url(../Icons/snowy_bg.png)";
               break;
             case "Drizzle":
               weatherIconImg.src = drizzleIcon;
+              document.body.style.backgroundImage =
+                "url(../Icons/drizzle_bg.png)";
+              break;
           }
           console.log(data.weather[0].main);
           weatherElement.textContent = capitalizeFirstLetter(desc);
