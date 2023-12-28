@@ -1,10 +1,10 @@
 .card {
-  width: 500px;
-  padding: 30px;
+  width: 300px;
+  padding: 20px;
   background-color: #ecf0f1;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,6 +13,28 @@
   font-size: large;
   border: 1px solid #3498db;
   margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 30%; /* Make the card take 90% of the screen width on smaller screens */
+    padding: 15px; /* Decrease padding on smaller screens */
+    font-size: medium; /* Adjust font size for smaller screens */
+    background-color: #ecf0f1; /* You can use a different background color if needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust box shadow for smaller screens */
+  }
+
+  .text-input {
+    font-size: small;
+    width: 50%;
+    padding: 6px;
+  }
+
+  .btn {
+    font-size: medium;
+    padding: 5px;
+    width: 70%;
+  }
 }
 
 .center {
@@ -31,7 +53,7 @@
 }
 
 .btn {
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: large;
   border: 1px solid #e9d8e4;
   border-radius: 8px;
@@ -52,7 +74,7 @@
 }
 
 #weatherContainer {
-  margin-top: 50px;
+  margin-top: 10px;
   font-family: Arial, sans-serif;
 }
 
