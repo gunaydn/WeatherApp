@@ -1,7 +1,7 @@
 .card {
   width: 300px;
   padding: 20px;
-  background-color: #ecf0f1;
+  background-color: rgba(255, 255, 255, 0.025);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
@@ -11,29 +11,19 @@
   align-items: center;
   text-align: center;
   font-size: large;
-  border: 1px solid #3498db;
+  border: 2px solid #3498db;
   margin-top: 50px;
 }
 
 @media (max-width: 600px) {
   .card {
-    width: 30%; /* Make the card take 90% of the screen width on smaller screens */
-    padding: 15px; /* Decrease padding on smaller screens */
-    font-size: medium; /* Adjust font size for smaller screens */
-    background-color: #ecf0f1; /* You can use a different background color if needed */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adjust box shadow for smaller screens */
+    width: 45%;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .text-input {
-    font-size: small;
     width: 50%;
-    padding: 6px;
-  }
-
-  .btn {
-    font-size: medium;
-    padding: 5px;
-    width: 70%;
   }
 }
 
@@ -45,11 +35,12 @@
 
 .text-input {
   font-size: large;
-  border: 1px solid #3498db;
+  border: 2px solid #3498db;
   border-radius: 8px;
   padding: 10px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #2c3e50;
+  font-weight: bold;
 }
 
 .btn {
@@ -76,6 +67,7 @@
 #weatherContainer {
   margin-top: 10px;
   font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
 .loader {
@@ -100,4 +92,22 @@
 body {
   background-repeat: no-repeat;
   background-size: "cover";
+}
+
+.error-popup {
+  display: none;
+  position: fixed;
+  padding: 15px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  border-radius: 8px;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, sans-serif;
+}
+
+.error-popup.show {
+  display: block;
 }

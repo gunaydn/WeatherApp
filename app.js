@@ -3,18 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("submitBtn");
   var card = document.querySelector(".card");
   var loaderContainer = document.getElementById("loaderContainer");
+  var errorPopup = document.getElementById("errorPopup");
   var cloudyIcon = "../Icons/cloudy128px_icon.png";
   var rainyIcon = "../Icons/rainy128px_icon.png";
   var snowyIcon = "../Icons/snowy128px_icon.png";
   var sunnyIcon = "../Icons/clear128px_icon.png";
   var drizzleIcon = "../Icons/drizzle128px_icon.png";
-  var clearSkyBg = "../Icons/clearSky_bg.png";
 
   btn.addEventListener("click", function () {
     var existingWeatherContainer = document.getElementById("weatherContainer");
     if (existingWeatherContainer) {
-      console.log(existingWeatherContainer);
       existingWeatherContainer.remove();
+    }
+
+    if (input.value === null || input.value.trim() === "") {
+      showErrorPopup("Please enter a city!");
+      return;
     }
 
     loaderContainer.innerHTML = '<div class="loader"></div>';
@@ -31,12 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
           weatherContainer.id = "weatherContainer";
 
           var cityElement = document.createElement("h2");
-          cityElement.textContent = data.name;
+          cityElement.textContent = data.name + " , " + data["sys"]["country"];
 
           var weatherElement = document.createElement("p");
           const desc = data.weather[0].description;
           var weatherIconImg = document.createElement("img");
-          console.log(clearSkyBg);
 
           switch (data.weather[0].main) {
             case "Clouds":
@@ -65,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 "url(../Icons/drizzle_bg.png)";
               break;
           }
-          console.log(data.weather[0].main);
           weatherElement.textContent = capitalizeFirstLetter(desc);
 
           var temperatureElement = document.createElement("p");
@@ -89,4 +91,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function capitalizeFirstLetter(inputString) {
   return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+}
+
+function showErrorPopup(message) {
+  errorPopup.innerText = message;
+  errorPopup.classList.add("show");
+
+  setTimeout(() => {
+    hideErrorPopup();
+  }, 3000);
+}
+
+function hideErrorPopup() {
+  errorPopup.classList.remove("show");
 }
