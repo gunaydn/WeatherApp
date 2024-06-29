@@ -70,6 +70,29 @@
   font-weight: bold;
 }
 
+#forecastContainer {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.forecast-card {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 150px; /* Kart genişliği */
+  flex: 0 0 auto; /* Kartların sabit genişlikte olmasını sağlar */
+  display: inline-block;
+}
+
 .loader {
   border: 8px solid #f3f3f3;
   border-top: 8px solid #3498db;
@@ -94,6 +117,7 @@ body {
   background-size: cover;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden; /* Ekranın kaymasını engelle */
 }
 
 .error-popup {
